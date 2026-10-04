@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,20 +18,16 @@
       --blue-dark: #173a8a;
       --blue-soft: #eff6ff;
       --blue-selected: #eaf2ff;
-
       --ink: #111827;
       --muted: #6b7280;
       --line: #dfe5ee;
       --soft: #f3f6fa;
       --bg: #f7f9fc;
       --surface: #ffffff;
-
       --danger: #b91c1c;
       --danger-soft: #fef2f2;
-
       --radius: 18px;
       --radius-sm: 12px;
-
       --shadow: 0 6px 28px rgba(15, 23, 42, 0.07);
       --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
@@ -68,10 +65,6 @@
       margin: 0 auto;
       padding: 24px 24px calc(64px + var(--safe-bottom));
     }
-
-    /* =========================
-       HEADER
-    ========================= */
 
     header {
       display: flex;
@@ -116,10 +109,6 @@
       font-weight: 500;
     }
 
-    /* =========================
-       SCREENS
-    ========================= */
-
     .screen {
       display: none;
     }
@@ -140,10 +129,6 @@
         transform: translateY(0);
       }
     }
-
-    /* =========================
-       HERO
-    ========================= */
 
     .hero {
       padding: 48px 0 32px;
@@ -200,9 +185,7 @@
       font-weight: 700;
       cursor: pointer;
       box-shadow: 0 8px 24px rgba(23, 58, 138, 0.2);
-      transition:
-        background 0.2s ease,
-        transform 0.2s ease;
+      transition: background 0.2s ease, transform 0.2s ease;
     }
 
     .btn-start:hover {
@@ -230,10 +213,6 @@
     .hero-meta span {
       color: var(--blue);
     }
-
-    /* =========================
-       PROGRESS
-    ========================= */
 
     .wizard-top {
       display: flex;
@@ -272,13 +251,8 @@
       width: 0%;
       background: var(--blue);
       border-radius: 99px;
-      transition:
-        width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
-    /* =========================
-       CARD
-    ========================= */
 
     .card {
       background: var(--surface);
@@ -286,9 +260,7 @@
       border-radius: var(--radius);
       padding: 26px 24px;
       box-shadow: var(--shadow);
-      transition:
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
+      transition: box-shadow 0.25s ease, border-color 0.25s ease;
     }
 
     .card.shake-error {
@@ -298,26 +270,11 @@
     }
 
     @keyframes shake {
-      0%,
-      100% {
-        transform: translateX(0);
-      }
-
-      20% {
-        transform: translateX(-6px);
-      }
-
-      40% {
-        transform: translateX(6px);
-      }
-
-      60% {
-        transform: translateX(-4px);
-      }
-
-      80% {
-        transform: translateX(4px);
-      }
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-6px); }
+      40% { transform: translateX(6px); }
+      60% { transform: translateX(-4px); }
+      80% { transform: translateX(4px); }
     }
 
     .qno {
@@ -343,18 +300,6 @@
       line-height: 1.5;
     }
 
-    .optional-badge {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: var(--muted);
-      background: var(--soft);
-      border-radius: 6px;
-      padding: 2px 8px;
-      margin-left: 6px;
-      vertical-align: middle;
-    }
-
     .field-error {
       display: none;
       margin-top: 12px;
@@ -371,10 +316,6 @@
       display: block;
       animation: fadeUp 0.25s ease;
     }
-
-    /* =========================
-       OPTIONS
-    ========================= */
 
     .options {
       display: grid;
@@ -399,11 +340,8 @@
       font-size: 0.875rem;
       font-weight: 550;
       cursor: pointer;
-      transition:
-        border-color 0.18s ease,
-        background 0.18s ease,
-        box-shadow 0.18s ease,
-        color 0.18s ease;
+      transition: border-color 0.18s ease, background 0.18s ease,
+        box-shadow 0.18s ease, color 0.18s ease;
       user-select: none;
       -webkit-user-select: none;
     }
@@ -438,10 +376,6 @@
       flex-shrink: 0;
     }
 
-    .option.checkbox::before {
-      border-radius: 4px;
-    }
-
     .option.selected {
       background: var(--blue-selected);
       border-color: #75a0ee;
@@ -458,21 +392,6 @@
       background-repeat: no-repeat;
     }
 
-    .multi-count {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-top: 10px;
-      font-weight: 500;
-    }
-
-    .multi-count strong {
-      color: var(--blue);
-    }
-
-    /* =========================
-       TEXTAREA
-    ========================= */
-
     textarea,
     input[type="text"] {
       width: 100%;
@@ -483,9 +402,7 @@
       outline: none;
       font-size: 0.95rem;
       color: var(--ink);
-      transition:
-        border-color 0.2s,
-        box-shadow 0.2s;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
 
     textarea {
@@ -500,8 +417,7 @@
       box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
     }
 
-    textarea.error-border,
-    input.error-border {
+    textarea.error-border {
       border-color: var(--danger);
       box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.12);
     }
@@ -516,10 +432,6 @@
       margin-top: 6px;
       text-align: right;
     }
-
-    /* =========================
-       NAVIGATION
-    ========================= */
 
     .nav {
       display: flex;
@@ -545,10 +457,7 @@
       font-size: 0.875rem;
       font-weight: 700;
       cursor: pointer;
-      transition:
-        background 0.2s ease,
-        transform 0.2s ease,
-        opacity 0.2s ease;
+      transition: background 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
       font-family: inherit;
       min-height: 44px;
     }
@@ -575,19 +484,11 @@
       transform: translateY(-1px);
     }
 
-    .btn.primary:active:not(:disabled) {
-      transform: translateY(0);
-    }
-
     .btn:disabled {
       opacity: 0.45;
       cursor: not-allowed;
       transform: none !important;
     }
-
-    /* =========================
-       ERROR / LOADING
-    ========================= */
 
     .error {
       display: none;
@@ -630,14 +531,8 @@
     }
 
     @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
+      to { transform: rotate(360deg); }
     }
-
-    /* =========================
-       THANKS
-    ========================= */
 
     .thanks {
       text-align: center;
@@ -693,10 +588,6 @@
       margin-bottom: 4px;
     }
 
-    /* =========================
-       FOOTER
-    ========================= */
-
     footer {
       text-align: center;
       color: #9aa3ae;
@@ -712,10 +603,6 @@
       color: #7a8490;
       font-weight: 600;
     }
-
-    /* =========================
-       RESPONSIVE
-    ========================= */
 
     @media (min-width: 768px) {
       .wrap {
@@ -769,7 +656,6 @@
 
   <div class="wrap">
 
-    <!-- HEADER -->
     <header>
       <div class="brand">
         <div class="wordmark">
@@ -785,11 +671,6 @@
         Étude terrain · Numérique
       </span>
     </header>
-
-
-    <!-- =========================
-         INTRO
-    ========================= -->
 
     <section class="screen active" id="intro">
 
@@ -826,11 +707,6 @@
 
     </section>
 
-
-    <!-- =========================
-         SURVEY
-    ========================= -->
-
     <form
       class="screen"
       id="survey"
@@ -854,7 +730,6 @@
 
       </div>
 
-
       <div class="progress">
         <i
           class="progress-fill"
@@ -862,9 +737,7 @@
         ></i>
       </div>
 
-
       <div id="pages"></div>
-
 
       <div
         class="error"
@@ -873,7 +746,6 @@
         Une erreur est survenue. Vérifiez votre connexion puis réessayez.
       </div>
 
-
       <div
         class="loading"
         id="loading"
@@ -881,7 +753,6 @@
         <span class="spinner"></span>
         Envoi en cours...
       </div>
-
 
       <div class="nav">
 
@@ -905,11 +776,6 @@
       </div>
 
     </form>
-
-
-    <!-- =========================
-         THANKS
-    ========================= -->
 
     <section
       class="screen"
@@ -950,8 +816,6 @@
 
     </section>
 
-
-    <!-- FOOTER -->
     <footer>
       Yaniel Labs · Étude numérique · By Yaniel Studio
 
@@ -961,7 +825,6 @@
     </footer>
 
   </div>
-
 
   <script>
 
@@ -975,7 +838,6 @@
 
     /* =====================================================
        QUESTIONS
-       IMPORTANT : CONTENU DU DEUXIÈME SONDAGE CONSERVÉ
     ===================================================== */
 
     const questions = [
@@ -1079,7 +941,6 @@
         options
       ] = q;
 
-
       const section =
         document.createElement("section");
 
@@ -1097,12 +958,8 @@
       section.dataset.name =
         name;
 
-      section.dataset.optional =
-        "0";
-
       section.style.display =
         "none";
-
 
       let html = `
 
@@ -1124,11 +981,6 @@
 
       `;
 
-
-      /* =========================
-         QUESTION TEXTE
-      ========================= */
-
       if (type === "text") {
 
         html += `
@@ -1149,20 +1001,12 @@
 
         `;
 
-      }
-
-
-      /* =========================
-         QUESTIONS À CHOIX
-      ========================= */
-
-      else {
+      } else {
 
         const twoCols =
           options.length >= 4
             ? " two-cols"
             : "";
-
 
         html += `
 
@@ -1173,7 +1017,6 @@
           >
 
         `;
-
 
         options.forEach((option, optionIndex) => {
 
@@ -1204,13 +1047,10 @@
 
         });
 
-
         html += `
           </div>
         `;
-
       }
-
 
       html += `
 
@@ -1225,7 +1065,6 @@
         </div>
 
       `;
-
 
       section.innerHTML =
         html;
@@ -1248,7 +1087,6 @@
 
         if (!input) return;
 
-
         input.addEventListener(
           "change",
           () => {
@@ -1270,11 +1108,9 @@
 
               });
 
-
             option.classList.add(
               "selected"
             );
-
 
             hideErrorsOnPage(
               option.closest(".page")
@@ -1309,7 +1145,6 @@
             const hint =
               page.querySelector(".char-hint");
 
-
             if (hint) {
 
               hint.textContent =
@@ -1318,7 +1153,6 @@
                   : `${length} caractère${length > 1 ? "s" : ""}`;
 
             }
-
 
             if (length >= 3) {
               hideErrorsOnPage(page);
@@ -1355,7 +1189,6 @@
 
       if (!page) return;
 
-
       const error =
         page.querySelector(".field-error");
 
@@ -1363,24 +1196,18 @@
         error.classList.remove("show");
       }
 
-
       const card =
         page.querySelector(".card");
 
       if (card) {
-        card.classList.remove(
-          "shake-error"
-        );
+        card.classList.remove("shake-error");
       }
-
 
       const textarea =
         page.querySelector("textarea");
 
       if (textarea) {
-        textarea.classList.remove(
-          "error-border"
-        );
+        textarea.classList.remove("error-border");
       }
 
     }
@@ -1391,31 +1218,19 @@
       document
         .querySelectorAll(".field-error")
         .forEach(element => {
-
           element.classList.remove("show");
-
         });
-
 
       document
         .querySelectorAll(".card")
         .forEach(card => {
-
-          card.classList.remove(
-            "shake-error"
-          );
-
+          card.classList.remove("shake-error");
         });
-
 
       document
         .querySelectorAll("textarea")
         .forEach(textarea => {
-
-          textarea.classList.remove(
-            "error-border"
-          );
-
+          textarea.classList.remove("error-border");
         });
 
     }
@@ -1432,19 +1247,15 @@
       const error =
         page.querySelector(".field-error");
 
-
       if (error) {
 
         error.textContent =
           message ||
           "Veuillez sélectionner une réponse pour continuer.";
 
-        error.classList.add(
-          "show"
-        );
+        error.classList.add("show");
 
       }
-
 
       if (card) {
 
@@ -1452,21 +1263,16 @@
           "shake-error"
         );
 
-
         setTimeout(() => {
-
           card.classList.remove(
             "shake-error"
           );
-
         }, 500);
 
       }
 
-
       const textarea =
         page.querySelector("textarea");
-
 
       if (textarea) {
 
@@ -1489,7 +1295,6 @@
 
       hideAllErrors();
 
-
       current =
         Math.max(
           0,
@@ -1498,7 +1303,6 @@
             total - 1
           )
         );
-
 
       pages.forEach(
         (page, index) => {
@@ -1511,20 +1315,15 @@
         }
       );
 
-
       document.getElementById(
         "stepNumber"
       ).textContent =
         current + 1;
 
-
       document.getElementById(
         "stepName"
       ).textContent =
-        pages[current]
-          .dataset
-          .category;
-
+        pages[current].dataset.category;
 
       document.getElementById(
         "progressBar"
@@ -1533,49 +1332,18 @@
           ((current + 1) / total) * 100
         ) + "%";
 
-
       prevBtn.style.visibility =
         current === 0
           ? "hidden"
           : "visible";
-
 
       nextBtn.innerHTML =
         current === total - 1
           ? "Envoyer mes réponses ✓"
           : "Continuer →";
 
-
       nextBtn.disabled =
         false;
-
-
-      const firstFocusable =
-        pages[current]
-          .querySelector(
-            "input, textarea, .option"
-          );
-
-
-      if (firstFocusable) {
-
-        setTimeout(() => {
-
-          if (
-            firstFocusable.tagName === "TEXTAREA" ||
-            firstFocusable.tagName === "INPUT"
-          ) {
-
-            firstFocusable.focus({
-              preventScroll: true
-            });
-
-          }
-
-        }, 50);
-
-      }
-
 
       window.scrollTo({
         top: 0,
@@ -1600,7 +1368,6 @@
       const name =
         page.dataset.name;
 
-
       if (type === "single") {
 
         return !!page.querySelector(
@@ -1608,7 +1375,6 @@
         );
 
       }
-
 
       if (type === "text") {
 
@@ -1624,7 +1390,6 @@
           .length >= 3;
 
       }
-
 
       return true;
 
@@ -1646,12 +1411,10 @@
             .classList
             .remove("active");
 
-
           document
             .getElementById("survey")
             .classList
             .add("active");
-
 
           show(0);
 
@@ -1677,139 +1440,62 @@
 
     /* =====================================================
        ENVOI VERS GOOGLE APPS SCRIPT
-       Envoi classique via formulaire + iframe invisible
-       pour éviter les problèmes CORS/no-cors.
     ===================================================== */
 
-    function envoyerVersAppsScript(payload) {
+    async function envoyerVersAppsScript(payload) {
 
-      return new Promise((resolve, reject) => {
+      if (
+        !GOOGLE_SCRIPT_URL ||
+        !GOOGLE_SCRIPT_URL.startsWith(
+          "https://script.google.com/macros/s/"
+        )
+      ) {
+        throw new Error(
+          "URL Google Apps Script invalide."
+        );
+      }
 
-        try {
+      const body =
+        new URLSearchParams();
 
-          if (
-            !GOOGLE_SCRIPT_URL ||
-            GOOGLE_SCRIPT_URL.includes("https://script.google.com/macros/s/AKfycbwBY9P0icvPA8q8naorSucMDb5NkGqoPjvfzx1Io2oCgf24mZM6RAoLigccpVeHcxLxHw/exec")
-          ) {
+      Object.entries(payload).forEach(
+        ([key, value]) => {
 
-            reject(
-              new Error(
-                "URL Google Apps Script manquante."
-              )
-            );
-
-            return;
-
-          }
-
-
-          const iframeName =
-            "googleAppsScriptTarget";
-
-
-          let iframe =
-            document.getElementById(
-              iframeName
-            );
-
-
-          if (!iframe) {
-
-            iframe =
-              document.createElement("iframe");
-
-            iframe.id =
-              iframeName;
-
-            iframe.name =
-              iframeName;
-
-            iframe.style.display =
-              "none";
-
-            iframe.setAttribute(
-              "aria-hidden",
-              "true"
-            );
-
-            document.body.appendChild(
-              iframe
-            );
-
-          }
-
-
-          const form =
-            document.createElement("form");
-
-
-          form.method =
-            "POST";
-
-          form.action =
-            GOOGLE_SCRIPT_URL;
-
-          form.target =
-            iframeName;
-
-          form.style.display =
-            "none";
-
-
-          Object.entries(payload)
-            .forEach(([key, value]) => {
-
-              const input =
-                document.createElement("input");
-
-              input.type =
-                "hidden";
-
-              input.name =
-                key;
-
-              input.value =
-                value ?? "";
-
-              form.appendChild(
-                input
-              );
-
-            });
-
-
-          document.body.appendChild(
-            form
+          body.append(
+            key,
+            value ?? ""
           );
 
-
-          form.submit();
-
-
-          /*
-           * On laisse Apps Script recevoir
-           * et traiter la requête avant
-           * de considérer l'envoi terminé.
-           */
-
-          setTimeout(() => {
-
-            try {
-              form.remove();
-            } catch (e) {}
-
-
-            resolve();
-
-          }, 1500);
-
-        } catch (error) {
-
-          reject(error);
-
         }
+      );
 
-      });
+      await fetch(
+        GOOGLE_SCRIPT_URL,
+        {
+          method: "POST",
+
+          mode: "no-cors",
+
+          headers: {
+            "Content-Type":
+              "application/x-www-form-urlencoded;charset=UTF-8"
+          },
+
+          body:
+            body.toString()
+        }
+      );
+
+      /*
+       * Apps Script reçoit la requête.
+       * En no-cors, le navigateur ne permet
+       * pas de lire la réponse JSON.
+       */
+
+      await new Promise(
+        resolve =>
+          setTimeout(resolve, 1200)
+      );
 
     }
 
@@ -1824,9 +1510,6 @@
 
         if (busy) return;
 
-
-        /* VALIDATION */
-
         if (!isValid()) {
 
           const page =
@@ -1834,7 +1517,6 @@
 
           const type =
             page.dataset.type;
-
 
           if (type === "text") {
 
@@ -1854,9 +1536,6 @@
 
         }
 
-
-        /* QUESTION SUIVANTE */
-
         if (current < total - 1) {
 
           show(current + 1);
@@ -1864,7 +1543,6 @@
           return;
 
         }
-
 
         /* =================================================
            ENVOI FINAL
@@ -1875,18 +1553,15 @@
         nextBtn.disabled = true;
         prevBtn.disabled = true;
 
-
         document
           .getElementById("errorMsg")
           .classList
           .remove("show");
 
-
         document
           .getElementById("loading")
           .classList
           .add("show");
-
 
         const payload = {
 
@@ -1947,18 +1622,15 @@
             .classList
             .remove("active");
 
-
           document
             .getElementById("thanks")
             .classList
             .add("active");
 
-
           window.scrollTo({
             top: 0,
             behavior: "smooth"
           });
-
 
           try {
 
@@ -1976,12 +1648,10 @@
             error
           );
 
-
           document
             .getElementById("errorMsg")
             .classList
             .add("show");
-
 
           busy = false;
 
@@ -2019,10 +1689,8 @@
           return;
         }
 
-
         const active =
           document.activeElement;
-
 
         if (
           active &&
@@ -2030,7 +1698,6 @@
         ) {
           return;
         }
-
 
         if (
           active &&
@@ -2050,3 +1717,4 @@
 
 </body>
 </html>
+```
