@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#2563eb">
+  <title>Yaniel LABS | Besoins numériques</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #2563eb;
+      --blue-dark: #1d4ed8;
+      --blue-soft: #eff6ff;
+      --bg: #f6f8fc;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --card: #ffffff;
+      --radius: 22px;
+      --radius-sm: 14px;
+      --shadow: 0 10px 40px rgba(15, 23, 42, 0.07);
+      --shadow-hover: 0 14px 48px rgba(15, 23, 42, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      background-image: linear-gradient(165deg, #eef2ff 0%, #f6f8fc 35%, #f1f5f9 100%);
+      color: var(--text);
+      min-height: 100vh;
+      min-height: 100dvh;
+      padding: 24px 16px 48px;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.55;
+    }
+
+    .wrap {
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* ——— Brand ——— */
+    .brand {
+      text-align: center;
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+      color: var(--text);
+    }
+
+    .brand span {
+      color: var(--blue);
+    }
+
+    /* ——— Pages & Steps ——— */
+    .page,
+    .step {
+      display: none;
+    }
+
+    .page.active,
+    .step.active {
+      display: block;
+      animation: fadeUp 0.4s ease both;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ——— Cards ——— */
+    .hero,
+    .card,
+    .thanks {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+    }
+
+    /* ——— Home ——— */
+    .hero {
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--blue);
+      border-radius: 50%;
+      animation: pulse 2s ease infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.8); }
+    }
+
+    h1 {
+      font-size: clamp(1.75rem, 7vw, 2.35rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+      margin-bottom: 16px;
+    }
+
+    h1 span {
+      color: var(--blue);
+    }
+
+    .intro {
+      color: var(--muted);
+      font-size: 0.975rem;
+      line-height: 1.65;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .start {
+      width: 100%;
+      padding: 16px 20px;
+      margin-top: 28px;
+      background: var(--blue);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+      transition: all 0.22s ease;
+    }
+
+    .start:hover {
+      background: var(--blue-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 22px rgba(37, 99, 235, 0.35);
+    }
+
+    .info {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+      margin-top: 18px;
+      font-weight: 500;
+    }
+
+    .privacy {
+      text-align: center;
+      color: #94a3b8;
+      font-size: 0.75rem;
+      margin-top: 20px;
+      line-height: 1.5;
+    }
+
+    /* ——— Progress ——— */
+    .progress {
+      margin-bottom: 20px;
+    }
+
+    .ptop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .bar {
+      height: 5px;
+      background: #e2e8f0;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--blue), #60a5fa);
+      border-radius: 999px;
+      width: 20%;
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ——— Questions ——— */
+    .label {
+      color: var(--blue);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    .question {
+      font-size: 1.15rem;
+      font-weight: 650;
+      line-height: 1.35;
+      letter-spacing: -0.02em;
+      margin-bottom: 22px;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      min-height: 54px;
+      padding: 14px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: #fff;
+      position: relative;
+      user-select: none;
+    }
+
+    .option:hover {
+      border-color: #93c5fd;
+      background: #f8fafc;
+    }
+
+    .option.selected {
+      border-color: var(--blue);
+      background: var(--blue-soft);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+
+    .option.selected::after {
+      content: '';
+      position: absolute;
+      right: 16px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--blue);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+      background-size: 12px;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .option input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .option span {
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding-right: 30px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 140px;
+      padding: 16px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.975rem;
+      line-height: 1.55;
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      color: var(--text);
+      background: #fff;
+    }
+
+    textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+
+    textarea::placeholder {
+      color: #94a3b8;
+    }
+
+    /* ——— Navigation ——— */
+    .nav {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .btn {
+      flex: 1;
+      min-height: 52px;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 0.975rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .back {
+      background: #f1f5f9;
+      color: #334155;
+      flex: 0.5;
+    }
+
+    .back:hover {
+      background: #e2e8f0;
+    }
+
+    .next,
+    .submit {
+      background: var(--blue);
+      color: #fff;
+      box-shadow: 0 3px 12px rgba(37, 99, 235, 0.28);
+    }
+
+    .next:hover,
+    .submit:hover {
+      background: var(--blue-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 5px 18px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+
+    /* ——— Error & Loading ——— */
+    .error {
+      display: none;
+      background: #fef2f2;
+      color: #b91c1c;
+      padding: 12px 14px;
+      border-radius: 12px;
+      margin-top: 12px;
+      font-size: 0.875rem;
+      border: 1px solid #fecaca;
+    }
+
+    .error.show {
+      display: block;
+      animation: fadeUp 0.3s ease;
+    }
+
+    .loading {
+      display: none;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 12px;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .loading.show {
+      display: flex;
+    }
+
+    .spinner {
+      width: 16px;
+      height: 16px;
+      border: 2px solid var(--border);
+      border-top-color: var(--blue);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* ——— Thanks ——— */
+    .thanks {
+      text-align: center;
+      padding: 48px 28px 42px;
+    }
+
+    .thanks-icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 24px;
+      border-radius: 50%;
+      background: var(--blue-soft);
+      border: 1px solid #dbeafe;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .thanks-icon svg {
+      width: 32px;
+      height: 32px;
+      stroke: var(--blue);
+      stroke-width: 2.5;
+      fill: none;
+    }
+
+    .thanks-label {
+      color: var(--blue);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+
+    .thanks h2 {
+      font-size: 1.55rem;
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+
+    .thanks p {
+      max-width: 380px;
+      margin: 0 auto;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 0.975rem;
+    }
+
+    .thanks-line {
+      width: 40px;
+      height: 3px;
+      background: var(--blue);
+      border-radius: 999px;
+      margin: 26px auto;
+    }
+
+    .thanks-note {
+      color: #94a3b8 !important;
+      font-size: 0.8rem !important;
+      margin-bottom: 28px !important;
+    }
+
+    .home-btn {
+      width: 100%;
+      max-width: 280px;
+      padding: 15px 24px;
+      border: none;
+      border-radius: var(--radius-sm);
+      background: var(--blue);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: inherit;
+      cursor: pointer;
+      box-shadow: 0 3px 12px rgba(37, 99, 235, 0.28);
+      transition: all 0.2s ease;
+    }
+
+    .home-btn:hover {
+      background: var(--blue-dark);
+      transform: translateY(-1px);
+    }
+
+    /* ——— Responsive ——— */
+    @media (min-width: 640px) {
+      body {
+        padding: 48px 24px 64px;
+      }
+
+      .hero,
+      .card,
+      .thanks {
+        padding: 36px 30px;
+      }
+
+      .question {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="brand">Yaniel <span>Labs</span></div>
+    <!-- HOME -->
+    <section class="page active" id="home">
+      <div class="hero">
+        <div class="badge">Sondage · 2 minutes</div>
+        <h1>Quels outils pourraient vraiment <span>vous simplifier la vie&nbsp;?</span></h1>
+        <p class="intro">
+          Répondez à quelques questions. Vos réponses nous aideront à comprendre les besoins réels des jeunes adultes et à créer des solutions numériques utiles.
+        </p>
+        <button class="start" id="start">Commencer le sondage</button>
+        <p class="info">5 questions · Environ 2 minutes · Aucune donnée personnelle</p>
+      </div>
+      <p class="privacy">Vos réponses sont utilisées uniquement pour analyser les besoins.</p>
+    </section>
+<p class="privacy" >Un sondage de Yaniel Labs · By Yaniel Studio</p>
+    <!-- SURVEY -->
+    <section class="page" id="survey">
+
+      <div class="progress">
+        <div class="ptop">
+          <span id="pt">Question 1 sur 5</span>
+          <span id="pc">20%</span>
+        </div>
+        <div class="bar"><div class="fill" id="fill"></div></div>
+      </div>
+
+      <!-- Q1 -->
+      <div class="step active" data-step="1">
+        <div class="card">
+          <div class="label">Question 1</div>
+          <h2 class="question">Dans quel domaine aimeriez-vous le plus améliorer votre quotidien&nbsp;?</h2>
+          <div class="options">
+            <label class="option"><input type="radio" name="domaine" value="Études / Formation"><span>Études / Formation</span></label>
+            <label class="option"><input type="radio" name="domaine" value="Argent / Finances personnelles"><span>Argent / Finances personnelles</span></label>
+            <label class="option"><input type="radio" name="domaine" value="Travail / Carrière"><span>Travail / Carrière</span></label>
+            <label class="option"><input type="radio" name="domaine" value="Projet / Business"><span>Projet / Business</span></label>
+            <label class="option"><input type="radio" name="domaine" value="Organisation / Productivité"><span>Organisation / Productivité</span></label>
+            <label class="option"><input type="radio" name="domaine" value="Vie personnelle"><span>Vie personnelle</span></label>
+            <label class="option"><input type="radio" name="domaine" value="Autre"><span>Autre</span></label>
+          </div>
+        </div>
+        <div class="nav">
+          <button class="btn next" id="n1" disabled>Suivant</button>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="step" data-step="2">
+        <div class="card">
+          <div class="label">Question 2</div>
+          <h2 class="question">Quel est votre principal problème actuellement dans ce domaine&nbsp;?</h2>
+          <textarea id="probleme" placeholder="Décrivez simplement votre problème..."></textarea>
+        </div>
+        <div class="nav">
+          <button class="btn back" data-back>Retour</button>
+          <button class="btn next" id="n2" disabled>Suivant</button>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="step" data-step="3">
+        <div class="card">
+          <div class="label">Question 3</div>
+          <h2 class="question">Utilisez-vous déjà un outil, une application ou une méthode pour résoudre ce problème&nbsp;?</h2>
+          <div class="options">
+            <label class="option"><input type="radio" name="outil" value="Oui, et ça fonctionne bien"><span>Oui, et ça fonctionne bien</span></label>
+            <label class="option"><input type="radio" name="outil" value="Oui, mais ce n'est pas vraiment satisfaisant"><span>Oui, mais ce n'est pas vraiment satisfaisant</span></label>
+            <label class="option"><input type="radio" name="outil" value="Non, je n'utilise rien actuellement"><span>Non, je n'utilise rien actuellement</span></label>
+          </div>
+        </div>
+        <div class="nav">
+          <button class="btn back" data-back>Retour</button>
+          <button class="btn next" id="n3" disabled>Suivant</button>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="step" data-step="4">
+        <div class="card">
+          <div class="label">Question 4</div>
+          <h2 class="question">Si un outil numérique simple pouvait réellement résoudre ce problème, seriez-vous prêt(e) à payer pour l'utiliser&nbsp;?</h2>
+          <div class="options">
+            <label class="option"><input type="radio" name="payer" value="Oui"><span>Oui</span></label>
+            <label class="option"><input type="radio" name="payer" value="Peut-être"><span>Peut-être</span></label>
+            <label class="option"><input type="radio" name="payer" value="Non"><span>Non</span></label>
+          </div>
+        </div>
+        <div class="nav">
+          <button class="btn back" data-back>Retour</button>
+          <button class="btn next" id="n4" disabled>Suivant</button>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="step" data-step="5">
+        <div class="card">
+          <div class="label">Question 5</div>
+          <h2 class="question">Quel prix maximum vous semblerait raisonnable pour un outil numérique vraiment utile&nbsp;?</h2>
+          <div class="options">
+            <label class="option"><input type="radio" name="prix" value="Moins de 1 000 FCFA"><span>Moins de 1 000 FCFA</span></label>
+            <label class="option"><input type="radio" name="prix" value="1 000 – 2 500 FCFA"><span>1 000 – 2 500 FCFA</span></label>
+            <label class="option"><input type="radio" name="prix" value="2 500 – 5 000 FCFA"><span>2 500 – 5 000 FCFA</span></label>
+            <label class="option"><input type="radio" name="prix" value="5 000 – 10 000 FCFA"><span>5 000 – 10 000 FCFA</span></label>
+            <label class="option"><input type="radio" name="prix" value="Plus de 10 000 FCFA"><span>Plus de 10 000 FCFA</span></label>
+          </div>
+        </div>
+
+        <div class="error" id="error">Une erreur est survenue. Vérifiez votre connexion puis réessayez.</div>
+        <div class="loading" id="loading"><span class="spinner"></span> Envoi en cours...</div>
+
+        <div class="nav">
+          <button class="btn back" data-back>Retour</button>
+          <button class="btn submit" id="send" disabled>Envoyer</button>
+        </div>
+      </div>
+
+      <p class="privacy">Aucune information personnelle n'est demandée.</p>
+    </section>
+
+    <!-- THANKS -->
+    <section class="page" id="thanks">
+      <div class="thanks">
+        <div class="thanks-icon">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        <div class="thanks-label">Réponse enregistrée</div>
+        <h2>Merci pour votre participation</h2>
+        <p>
+          Votre réponse a bien été enregistrée.
+          Elle contribuera à mieux comprendre les besoins réels des utilisateurs et à développer des solutions numériques plus pertinentes.
+        </p>
+        <div class="thanks-line"></div>
+        <p class="thanks-note">Merci d'avoir pris quelques minutes pour partager votre expérience.</p>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    // === COLLE ICI L'URL DE TON GOOGLE APPS SCRIPT ===
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxeX7EoiPgnyn0Ujv4lnYCMUb88IJ5jOxIRFOcYzcCLL2kRzfVf2UftYP2wROld-0DdTA/exec";
+
+    let step = 1;
+    let busy = false;
+
+    const pages = {
+      home: document.getElementById("home"),
+      survey: document.getElementById("survey"),
+      thanks: document.getElementById("thanks")
+    };
+
+    const steps = document.querySelectorAll(".step");
+
+    function show(n) {
+      steps.forEach(x => x.classList.remove("active"));
+      document.querySelector('[data-step="' + n + '"]').classList.add("active");
+      step = n;
+
+      const p = n * 20;
+      document.getElementById("pt").textContent = "Question " + n + " sur 5";
+      document.getElementById("pc").textContent = p + "%";
+      document.getElementById("fill").style.width = p + "%";
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      check();
+    }
+
+    document.getElementById("start").onclick = () => {
+      pages.home.classList.remove("active");
+      pages.survey.classList.add("active");
+      show(1);
+    };
+
+    document.querySelectorAll(".option").forEach(o => {
+      o.onclick = () => {
+        const i = o.querySelector("input");
+        const name = i.name;
+
+        document.querySelectorAll('input[name="' + name + '"]').forEach(x => {
+          x.closest(".option").classList.remove("selected");
+        });
+
+        o.classList.add("selected");
+        i.checked = true;
+        check();
+      };
+    });
+
+    document.getElementById("probleme").oninput = check;
+
+    function check() {
+      const q1 = document.querySelector('input[name="domaine"]:checked');
+      const q2 = document.getElementById("probleme").value.trim();
+      const q3 = document.querySelector('input[name="outil"]:checked');
+      const q4 = document.querySelector('input[name="payer"]:checked');
+      const q5 = document.querySelector('input[name="prix"]:checked');
+
+      document.getElementById("n1").disabled = !q1;
+      document.getElementById("n2").disabled = q2.length < 3;
+      document.getElementById("n3").disabled = !q3;
+      document.getElementById("n4").disabled = !q4;
+      document.getElementById("send").disabled = !q5 || busy;
+    }
+
+    document.getElementById("n1").onclick = () => show(2);
+    document.getElementById("n2").onclick = () => show(3);
+    document.getElementById("n3").onclick = () => show(4);
+    document.getElementById("n4").onclick = () => show(5);
+
+    document.querySelectorAll("[data-back]").forEach(b => {
+      b.onclick = () => {
+        if (step > 1) show(step - 1);
+      };
+    });
+
+    function data() {
+      return {
+        timestamp: new Date().toISOString(),
+        domaine: document.querySelector('input[name="domaine"]:checked')?.value || "",
+        probleme: document.getElementById("probleme").value.trim(),
+        outil_actuel: document.querySelector('input[name="outil"]:checked')?.value || "",
+        pret_a_payer: document.querySelector('input[name="payer"]:checked')?.value || "",
+        prix_acceptable: document.querySelector('input[name="prix"]:checked')?.value || ""
+      };
+    }
+
+    document.getElementById("send").onclick = async () => {
+      if (busy) return;
+
+      busy = true;
+      check();
+
+      document.getElementById("error").classList.remove("show");
+      document.getElementById("loading").classList.add("show");
+
+      try {
+await fetch(GOOGLE_SCRIPT_URL, {
+  method: "POST",
+  mode: "no-cors",
+  body: JSON.stringify(obj)
+});
+        });
+
+        pages.survey.classList.remove("active");
+        pages.thanks.classList.add("active");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
+      } catch (e) {
+        document.getElementById("error").classList.add("show");
+        busy = false;
+        check();
+      }
+
+      document.getElementById("loading").classList.remove("show");
+    };
+
+    check();
+  </script>
+</body>
+</html>
